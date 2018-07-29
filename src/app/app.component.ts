@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'neighbour-app';
+ 
+  navLinkSelected = 'Home' ;
+  OnLinkSelected(navLink: string){
+  	this.navLinkSelected = navLink;
+  }
 }

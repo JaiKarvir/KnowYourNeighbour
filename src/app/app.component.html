@@ -1,8 +1,10 @@
-<app-header> </app-header>
+<app-header (navLinkSelected)="OnLinkSelected($event)"> </app-header>
 <!-- <video autoplay muted loop id="myVideo">
   <source src="src/assets/images/bgVideo.mp4" type="video/mp4">
 </video> -->
 
-<app-homepage></app-homepage>
+<app-homepage *ngIf = "navLinkSelected === 'Home'"></app-homepage>
+<app-service-provider *ngIf = "navLinkSelected === 'Service-Provider'"></app-service-provider>
+<app-auth *ngIf = "navLinkSelected === 'Auth'"></app-auth>
 
 <app-footer></app-footer>
