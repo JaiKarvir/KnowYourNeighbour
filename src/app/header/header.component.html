@@ -1,15 +1,27 @@
+
 <nav class="navbar navbar-expand navbar-light bg-light">
   <div class="navbar-header">
-      <label class="navbar-brand" href="#">
-        <img src="src/assets/images/laugh.png" width="40" height="30" class="d-inline-block align-top" alt="" style="padding-right: 5px">
-        KnowYourNeighbour
-      </label>
-    </div>
+    <label class="navbar-brand" href="#">
+      <img src="src/assets/images/icon.png" width="40" height="30" class="d-inline-block align-top" alt="" style="padding-right: 5px">
+      KnowYourNeighbour
+    </label>
+  </div>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav ml-auto">
       <a class="nav-item nav-link active" href="#" (click)="onSelect('Home')">Home</a>
       <a class="nav-item nav-link active" href="#" (click)="onSelect('Service-Provider')">Service-Provider</a>
-      <a class="nav-item nav-link active" href="#" (click)="onSelect('Auth')">Login / Sign Up</a>
+      <!--  <a class="nav-item nav-link active" href="#" (click)="onSelect('Auth')">Login / Sign Up</a>   --> 
+
+      <div class="dropdown">
+        <a class="btn btn-outline-secondary dropdown-toggle"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Sign In/Up
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#" (click)="onSelect('Auth')">Sign In</a>
+          <a class="dropdown-item" href="#" (click)="onSelect('Auth')">Register</a>
+        </div>
+      </div> 
+
     </div>
   </div>
 </nav>

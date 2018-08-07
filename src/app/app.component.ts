@@ -9,6 +9,7 @@ export class AppComponent {
   title = 'neighbour-app';
  
   navLinkSelected = 'Home' ;
+  //navLinkSelected = 'Service-Provider' ; 
   OnLinkSelected(navLink: string){
   	this.navLinkSelected = navLink;
   }
