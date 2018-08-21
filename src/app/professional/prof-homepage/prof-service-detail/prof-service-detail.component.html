@@ -1,0 +1,32 @@
+<div class="row">
+	<div class="col-md-12">
+		<img [src]="prof_business.images" alt="{{prof_business.heading}}" class="img-responsive" style="max-height: 300px;">
+	</div>
+	<div class="col-md-12">
+		<h3>{{prof_business.heading}}</h3>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<p>{{prof_business.description}}</p>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<p>Rate : {{ prof_business.rate }}</p>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<div class="dropdown">
+			<a class="btn btn-outline-primary dropdown-toggle"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Manage Service
+			</a>
+			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				<a class="dropdown-item" (click)="onEditService()">Edit Service</a>
+				<a class="dropdown-item" (click)="onDeleteService()">Delete Service</a>
+			</div>
+		</div> 
+	</div>
+</div>

@@ -1,16 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgxPopper } from 'angular-popper';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomepageComponent } from './homepage/homepage.component';
-import { AuthComponent } from './auth/auth.component';
-import { ServiceProviderComponent } from './service-provider/service-provider.component';
-import { ProviderLoginComponent } from './service-provider/provider-login/provider-login.component';
-import { ProviderRegisterComponent } from './service-provider/provider-register/provider-register.component';
-
+import { UserComponent } from './user/user.component';
+import { ProfessionalComponent } from './professional/professional.component';
+import { LoginComponent } from './professional/login/login.component';
+import { RegisterComponent } from './professional/register/register.component';
+import { ProfHomepageComponent } from './professional/prof-homepage/prof-homepage.component';
+import { ProfServicesListComponent } from './professional/prof-homepage/prof-services-list/prof-services-list.component';
+import { ProfServiceItemComponent } from './professional/prof-homepage/prof-services-list/prof-service-item/prof-service-item.component';
+import { ProfServiceStartComponent } from './professional/prof-homepage/prof-service-start/prof-service-start.component';
+import { ProfServiceDetailComponent } from './professional/prof-homepage/prof-service-detail/prof-service-detail.component';
+import { ProfServiceEditComponent } from './professional/prof-homepage/prof-service-edit/prof-service-edit.component';
 
 
 @NgModule({
@@ -19,16 +26,22 @@ import { ProviderRegisterComponent } from './service-provider/provider-register/
     HeaderComponent,
     FooterComponent,
     HomepageComponent,
-    AuthComponent,
-    ServiceProviderComponent,
-    ProviderLoginComponent,
-    ProviderRegisterComponent
-   
+    UserComponent,
+    ProfessionalComponent,
+    LoginComponent,
+    RegisterComponent,
+    ProfHomepageComponent,
+    ProfServicesListComponent,
+    ProfServiceItemComponent,
+    ProfServiceStartComponent,
+    ProfServiceDetailComponent,
+    ProfServiceEditComponent,
   ],
   imports: [
     BrowserModule,
-     NgxPopper
-  
+    ReactiveFormsModule,
+    NgxPopper,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

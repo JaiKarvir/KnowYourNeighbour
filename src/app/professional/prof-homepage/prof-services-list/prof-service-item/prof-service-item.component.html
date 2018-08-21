@@ -1,0 +1,23 @@
+
+<!--  <a style="cursor:pointer;" class="list-group-item clearfix"> 
+	 
+			<div class="pull-left">
+				<h4 class="list-group-item-heading">{{ prof_business.main_category }}</h4>
+				<p class="list-group-item-text">{{ prof_business.sub_category }}</p>
+			</div>
+			<span class="pull-right">
+				<img [src]="prof_business.images" alt="{{ prof_business.main_category }}" class="img-responsive" style="max-height: 50px;">
+			</span>
+
+</a> -->
+
+<a href="#" class="list-group-item list-group-item-action flex-column align-items-start" routerLinkActive="active" [routerLink]="[index]">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{ prof_business.heading }}</h5>
+     </div>
+     <div>
+    <img [src]="prof_business.images" alt="{{ prof_business.main_category }}" class="img-responsive" style="max-height: 100px;"> 
+    <p > <b>Main-Category:</b> {{prof_business.main_category }}
+    <b>   Sub-Category: </b>{{prof_business.sub_category }}</p>  
+	</div>
+  </a>
