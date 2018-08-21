@@ -1,0 +1,12 @@
+<div class="row p-3">
+	<div class="col-md-12">
+		<button class="btn btn-outline-primary" type="button" (click)="onNewService()">New Service</button>
+	</div>
+</div>
+<hr>	
+<div class="row">
+	<div class="col-md-12">
+			<!-- <app-recipe-item *ngFor="let recipeEl of recipes,let i =index"  [recipe]="recipeEl" [index]="i"></app-recipe-item> -->
+			<app-prof-service-item *ngFor="let service of professional_services;let i=index" [prof_business]="service" [index]="i"></app-prof-service-item>
+	</div>
+</div>	
