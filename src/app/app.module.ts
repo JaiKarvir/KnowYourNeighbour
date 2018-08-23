@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxPopper } from 'angular-popper';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -18,6 +19,11 @@ import { ProfServiceItemComponent } from './professional/prof-homepage/prof-serv
 import { ProfServiceStartComponent } from './professional/prof-homepage/prof-service-start/prof-service-start.component';
 import { ProfServiceDetailComponent } from './professional/prof-homepage/prof-service-detail/prof-service-detail.component';
 import { ProfServiceEditComponent } from './professional/prof-homepage/prof-service-edit/prof-service-edit.component';
+import { DataStorageService } from './shared/data-storage.service';
+import { AuthGuard } from './auth-guard.service';
+import { ProfessionalStartComponent } from './professional/professional-start/professional-start.component';
+import { ProfessionalService } from './professional/professional.service';
+
 
 
 @NgModule({
@@ -36,14 +42,16 @@ import { ProfServiceEditComponent } from './professional/prof-homepage/prof-serv
     ProfServiceStartComponent,
     ProfServiceDetailComponent,
     ProfServiceEditComponent,
+    ProfessionalStartComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+    HttpModule,
     NgxPopper,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ ProfessionalService,DataStorageService, AuthGuard],
   bootstrap: [AppComponent]
 
 })

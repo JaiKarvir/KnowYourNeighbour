@@ -1,12 +1,19 @@
 import { Professional } from './professional.model';
 import { ProfessionalContact } from './professional_contact.model';
 import { ProfessionalBusiness } from './professional_service.model';
+import { Injectable, OnInit, Output, EventEmitter } from '@angular/core';
+import { DataStorageService } from '../shared/data-storage.service'; 
 
+@Injectable()
 export class ProfessionalService{
+
+	@Output() loggedUser: EventEmitter<any> = new EventEmitter();
 
     p_id: number;
     selected_professional: Professional;
-	private professionals: Professional[]= [
+    loggedIn = false;
+
+	private professionals: Professional[]=  [
 	new Professional(1,
 		'abc@abc.com',
 		'MyPassword1!',
@@ -23,6 +30,7 @@ export class ProfessionalService{
 	];
 
 
+
 	/*getProfessional(email: string){
 		for(let professional of this.professionals){
 			if(professional.p_email ===  email){
@@ -34,11 +42,12 @@ export class ProfessionalService{
 		}
 	}*/
 
-	checkProfessionalExists(profEmail: string,profPassword: string){
+constructor( private dataStorageService: DataStorageService){}
 
+	checkProfessionalExists(profEmail: string,profPassword: string){
 		for(let professional of this.professionals){
 			if(professional.p_email ===  profEmail && professional.p_password ===  profPassword){
-				//console.log(professional.p_id);
+				this.selected_professional = professional;
 				return professional.p_id;
 			}
 		}
@@ -46,6 +55,7 @@ export class ProfessionalService{
 	}
 
 	getProfessional(id: number){
+
 		for(let professional of this.professionals){
 			if(professional.p_id === id){
 				this.p_id =id;
@@ -59,4 +69,34 @@ export class ProfessionalService{
 	getBusiness(id:number): ProfessionalBusiness{
 		return this.selected_professional.p_service[id];
 	}
+
+	updateBusiness(id: number, main_category :string,sub_category:string, title: string, description:string, imagePath: string, rate: number){
+		const newBusiness: ProfessionalBusiness = new ProfessionalBusiness(this.selected_professional.p_id,main_category,
+			sub_category,title,description,imagePath,rate);
+		this.selected_professional.p_service[id] = newBusiness;
+	}
+
+	saveBusiness(main_category :string,sub_category:string, title: string, description:string, imagePath: string, rate: number){
+		const newBusiness: ProfessionalBusiness = new ProfessionalBusiness(this.selected_professional.p_id,main_category,
+			sub_category,title,description,imagePath,rate);
+		this.selected_professional.p_service.push(newBusiness);
+	}
+
+	deleteBusiness(id: number){
+		this.selected_professional.p_service.splice(id,1);
+	}
+
+	setGuard(){
+		this.loggedIn = true;
+		this.loggedUser.emit(this.selected_professional.p_email);
+	}
+
+	isAuthenticated(){
+		const promise = new Promise(
+			(resolve,reject)=>{
+				resolve(this.loggedIn);
+			});
+		return promise;
+	}
+
 }

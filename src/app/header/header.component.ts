@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ProfessionalService } from '../professional/professional.service';
 
 @Component({
   selector: 'app-header',
@@ -7,6 +8,17 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent{
 	appTitle = "KnowYourNeighbour";
-  home = "Home";
-  signInUp = "Sign In/Up";
+  	home = "Home";
+  	signInUp = "Sign In/Up";
+
+  	loggedUser = "NotLogged";
+
+  	constructor(private professionalService: ProfessionalService){
+  		 professionalService.loggedUser.subscribe(name => this.changeName(name));
+  	}
+
+  	changeName(name: string){
+  		this.loggedUser = name;
+  	}
+
 }

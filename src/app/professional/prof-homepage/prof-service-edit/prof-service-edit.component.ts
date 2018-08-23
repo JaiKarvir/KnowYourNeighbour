@@ -34,6 +34,7 @@ export class ProfServiceEditComponent implements OnInit {
     let imagePath = '';
     let rate : number;
     let description = '';
+     
 
     if(this.editMode){
       const prof_service = this.professionalService.getBusiness(this.id);
@@ -60,6 +61,22 @@ export class ProfServiceEditComponent implements OnInit {
   }
   
   onSubmit(){
-    console.log(this.serviceForm.value);
+    if(this.editMode){
+      this.professionalService.updateBusiness(this.id,
+                                              this.serviceForm.value['main_category'],
+                                              this.serviceForm.value['sub_category'],
+                                              this.serviceForm.value['title'],
+                                              this.serviceForm.value['description'],
+                                              this.serviceForm.value['imagePath'],
+                                              this.serviceForm.value['rate']);
+    }else{
+      this.professionalService.saveBusiness(this.serviceForm.value['main_category'],
+                                              this.serviceForm.value['sub_category'],
+                                              this.serviceForm.value['title'],
+                                              this.serviceForm.value['description'],
+                                              this.serviceForm.value['imagePath'],
+                                              this.serviceForm.value['rate']);
+    }
+    this.onCancel();
   }
 }
