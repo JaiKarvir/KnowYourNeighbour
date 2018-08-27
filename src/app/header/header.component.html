@@ -3,19 +3,28 @@
   <div class="navbar-header">
     <label class="navbar-brand" href="#">
       <img src="src/assets/images/icon.png" width="40" height="30" class="d-inline-block align-top" alt="" style="padding-right: 5px">
-      {{ appTitle }}
+      {{ appTitle }} 
     </label>
   </div>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav ml-auto">
       <a class="nav-item nav-link active" [routerLink]="['home']">{{ home }}</a>
-      <div class="dropdown">
+      <div class="dropdown" *ngIf=" loggedUser === 'NotLogged'">
         <a class="btn btn-outline-primary dropdown-toggle"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
          {{ signInUp }}
         </a>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" [routerLink]="['user']">User</a>
           <a class="dropdown-item" [routerLink]="['professional']">Professional</a>
+        </div>
+      </div> 
+       <div class="dropdown" *ngIf=" loggedUser !== 'NotLogged'">
+        <a class="btn btn-outline-primary dropdown-toggle"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         {{ loggedUser }}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" [routerLink]="['/professional',loggedUser_id,'prof-homepage']">MyPage</a>
+          <a class="dropdown-item" (click)="onLogout()">Logout</a>
         </div>
       </div> 
 

@@ -11,7 +11,7 @@
 					<span class="help-block"  *ngIf="!this.professionalLoginForm.get('emailProfessional').valid && this.professionalLoginForm.get('emailProfessional').touched"> 
 						<span *ngIf="this.professionalLoginForm.get('emailProfessional').hasError('required')">Email is required</span>
 						<span *ngIf="this.professionalLoginForm.get('emailProfessional').hasError('email')">Enter valid email</span>
-						<span *ngIf="this.professionalLoginForm.get('emailProfessional').hasError('emailExists')">Professional with this email already exists</span>
+						<!-- <span *ngIf="this.professionalLoginForm.get('emailProfessional').hasError('emailExists')">Professional with this email already exists</span> -->
 					</span>
 				</div>
 				<div class="form-group">
@@ -19,12 +19,12 @@
 					<input type="password" class="form-control" id="passwordProfessional" name="passwordProfessional" placeholder="Enter Password" formControlName= "passwordProfessional">
 					<span class="help-block"  *ngIf="!this.professionalLoginForm.get('passwordProfessional').valid && this.professionalLoginForm.get('passwordProfessional').touched"> 
 						<span *ngIf="this.professionalLoginForm.get('passwordProfessional').hasError('required')">Password is required</span>
-						<span *ngIf="this.professionalLoginForm.get('passwordProfessional').hasError('pattern')">Password should contain 1 uppercase, 1 lowercase, 1 number and 1 special character</span>
+						<!-- <span *ngIf="this.professionalLoginForm.get('passwordProfessional').hasError('pattern')">Password should contain 1 uppercase, 1 lowercase, 1 number and 1 special character</span> -->
 					</span>
 
 				</div>
 				<div class="form-group text-center">
-					<button type="submit" class="btn btn-outline-secondary" [disabled]="!this.professionalLoginForm.valid">Submit</button>
+					<button type="submit" class="btn btn-outline-secondary" [disabled]="!this.professionalLoginForm.valid">Log In</button>
 				</div>
 			</form>
 		</div>

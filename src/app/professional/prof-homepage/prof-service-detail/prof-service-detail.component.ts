@@ -26,4 +26,9 @@ export class ProfServiceDetailComponent implements OnInit {
   onEditService(){
     this.router.navigate(['edit'], {relativeTo: this.route});
   }
+
+  onDeleteService(){
+    this.professionalService.deleteBusiness(this.id);
+    this.router.navigate(['/professional',this.id,'prof-homepage'], {relativeTo: this.route});
+  }
 }
