@@ -3,6 +3,7 @@ import { ProfessionalContact } from './professional_contact.model';
 import { ProfessionalBusiness } from './professional_service.model';
 import { Injectable, OnInit, Output, EventEmitter } from '@angular/core';
 import { DataStorageService } from '../shared/data-storage.service'; 
+import { Router } from '@angular/router';
 
 @Injectable()
 export class ProfessionalService{
@@ -42,7 +43,7 @@ export class ProfessionalService{
 		}
 	}*/
 
-constructor( private dataStorageService: DataStorageService){}
+constructor( private dataStorageService: DataStorageService, private router: Router){}
 
 	checkProfessionalExists(profEmail: string,profPassword: string){
 		for(let professional of this.professionals){
@@ -88,7 +89,8 @@ constructor( private dataStorageService: DataStorageService){}
 
 	setGuard(){
 		this.loggedIn = true;
-		this.loggedUser.emit(this.selected_professional.p_email);
+		//this.loggedUser.emit(this.selected_professional.p_email);
+		this.loggedUser.emit(this.selected_professional);
 	}
 
 	isAuthenticated(){
@@ -97,6 +99,12 @@ constructor( private dataStorageService: DataStorageService){}
 				resolve(this.loggedIn);
 			});
 		return promise;
+	}
+
+	onProfessionalLogout(){
+		this.loggedIn = false;
+		this.loggedUser.emit(null);
+		this.router.navigate(['/professional']);
 	}
 
 }

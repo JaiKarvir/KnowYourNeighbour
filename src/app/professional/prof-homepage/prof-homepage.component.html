@@ -6,22 +6,18 @@
   <hr>
    {{ professional.p_contact.p_address }}
   <hr>
-   {{ professional.p_service.main_category }}  -->
+  {{ professional.p_service.main_category }}  -->
   
-<div class="row p-3">
-	<div class="col-sm-12">
-		<p> Hello {{ professional.p_email }} !!</p>
-	</div>
-	
-	<div class="col-sm-4">
-		<app-prof-services-list [professional_services] = "professional_business"></app-prof-services-list>
-	</div>
-	<div class="col-md-7">
+  <div class="row p-3">
+  	<div class="col-sm-4">
+  		<app-prof-services-list [professional_services] = "professional_business"></app-prof-services-list>
+  	</div>
+  	<div class="col-md-7">
 		<!-- <app-recipe-detail *ngIf="selectRecipe;else infoText"
 		 [recipe]="selectRecipe"></app-recipe-detail>
 		 <ng-template #infoText>
 		 	<p>Select a Recipe</p>
 		 </ng-template> -->
 		 <router-outlet></router-outlet>
+		</div>
 	</div>
-</div>
